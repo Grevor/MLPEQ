@@ -1,6 +1,5 @@
 package mlp.server.chunk;
 
-import viking.game.movement.Traversal;
 import mlp.core.Entity;
 
 public interface Chunk extends TerrainChunk {

@@ -1,5 +1,8 @@
 package mlp.server.chunk;
 
+import mlp.server.Terrain;
+import viking.game.movement.Traversal;
+
 public class StandardTerrainChunk extends TerrainChunkBase {
 	final long[][] terrainHandles = new long[Chunk.SIZE_X][Chunk.SIZE_Y];
 
@@ -22,6 +25,11 @@ public class StandardTerrainChunk extends TerrainChunkBase {
 	@Override
 	public boolean isImmutable() {
 		return false;
+	}
+
+	@Override
+	public double getTraversalCost(int x, int y, Traversal t) {
+		return Terrain.getTerrain(terrainHandles[x][y]).getTraversalCost(t);
 	}
 
 }
